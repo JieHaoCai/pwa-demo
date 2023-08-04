@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>测试pwa应用</title>
+        <link rel="manifest" href="/manifest.json">
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div>
+            测试
+
+            <ul id="msgBox"></ul>
+            <input type="text" id="msg-input">
+            <button id="send-msg-button">发送消息</button>
+        </div>
+    </body>
+</html>
+<script>
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').then(function() { console.log('Service Worker Registered'); });
+}
+
+   let btn = document.getElementById("send-msg-button")
+    let val = document.getElementById("msg-input")
+    let box = document.getElementById("msgBox")
+
+  btn.addEventListener("click", function (val) {
+    
+        //发送消息给serviceWorker
+        navigator.serviceWorker.controller.postMessage(val.value)
+        //       navigator.serviceWorker.ready.then(worker => {
+        //         console.log(worker)
+        //         worker.active.postMessage(val.value); 
+        // });
+    })
+    
+
+
+    //监听信息
+    navigator.serviceWorker.addEventListener("message",function(e){
+       box.innerHTML+="<li>"+event.data.message+"</li>"  //将信息发送给被监听的所有客户端
+    })
+
+
+
+</script>

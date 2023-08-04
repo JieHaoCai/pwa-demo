@@ -1,0 +1,31 @@
+{
+    "name": "W3开放网",
+    "short_name": "W3开放网",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "scope": "/",
+    "background_color": "#fff",
+    "homepage": "http://127.0.0.1:5500/",
+    "icons": [
+        {
+          "src": "../img/icon-code-kd.png",
+          "type": "image/png",
+          "sizes": "48x48"
+        },
+        {
+          "src": "../img/icon-code-kd.png",
+          "type": "image/png",
+          "sizes": "96x96"
+        },
+        {
+          "src": "../img/icon-code-kd.png",
+          "type": "image/png",
+          "sizes": "144x144"
+        },
+        {
+          "src": "../img/icon-code-kd.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        }
+    ]
+}
